@@ -104,10 +104,7 @@ button{background:var(--blue-700);color:white;padding:10px 14px;border-radius:8p
 
 /* Accessibility helper: fokus global (kontras tinggi) */
 :focus{outline:3px solid var(--blue-700);outline-offset:2px}
-}
 
-button:hover {
-    background-color: #ff1a8c;
 }
 .cta-button  {
     background-color: #e74c3c;
@@ -127,6 +124,7 @@ button:hover {
     display: flex;
     gap: 20px;
 }
+
 
 
 
