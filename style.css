@@ -104,3 +104,30 @@ button{background:var(--blue-700);color:white;padding:10px 14px;border-radius:8p
 
 /* Accessibility helper: fokus global (kontras tinggi) */
 :focus{outline:3px solid var(--blue-700);outline-offset:2px}
+}
+
+.cta-button {
+  background-color: #e74c3c;
+  color: white;
+  fort-wright: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button: hover {
+  backgroumd-color: #c0392b;
+}
+
+.nav-cta a {
+  text-decoration: none;
+}
+
+.menu-tugas {
+  display: flex;
+  gap: 20px;
+}
+
+
+  
+
