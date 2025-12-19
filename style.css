@@ -1,130 +1,286 @@
-/* 
-  File: style.css
-  Tema: Biru menarik, kontras cukup untuk aksesibilitas.
-  Komentar di setiap blok menjelaskan alasan styling.
-*/
-
-/* Variabel warna untuk konsistensi */
-:root{
-  --blue-900: #042c6b;
-  --blue-700: #1565c0;
-  --blue-500: #1e88e5;
-  --blue-200: #bbdefb;
-  --muted: #475569;
-  --bg-gradient: linear-gradient(180deg,#f4fbff,#ffffff);
-  --radius: 12px;
-  --max-width: 1100px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Reset ringan dan dasar layout */
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg-gradient);color:#04243a}
-.container{max-width:var(--max-width);margin:0 auto;padding:16px}
-
-/* Header styling: kontras tinggi agar judul & nav mudah dibaca */
-.site-header{
-  background: linear-gradient(180deg,var(--blue-700),var(--blue-500));
-  color:white;
-  padding:28px 16px;
-  border-bottom:4px solid rgba(0,0,0,0.05);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-.header-inner{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
-.lead{margin:0;color:rgba(255,255,255,0.95);font-weight:500}
-
-/* Navigation: jelas & fokusable (outline) */
-.main-nav{display:flex;gap:8px;flex-wrap:wrap}
-.main-nav a{
-  color:rgba(255,255,255,0.95);
-  text-decoration:none;
-  padding:8px 10px;
-  border-radius:8px;
-  font-weight:500;
-}
-.main-nav a:focus, .main-nav a:hover{outline:3px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03)}
-
-/* Main layout: grid 2 kolom (konten utama + sidebar) */
-main.container{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:16px;
-  margin-top:16px;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Card style untuk semua blok konten */
-.card{
-  background:white;
-  border-radius:var(--radius);
-  box-shadow:0 8px 20px rgba(2,6,23,0.06);
-  padding:16px;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #f3f4f6;
 }
 
-/* About area */
-.about-article{display:flex;gap:16px;align-items:center}
-.about-article img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:4px solid white}
-.about-text p{margin:8px 0}
-.muted{color:var(--muted)}
-
-/* Projects */
-.project-item{margin-bottom:18px}
-.project-thumb{width:100%;max-height:220px;object-fit:cover;border-radius:8px}
-iframe{max-width:100%;height:auto}
-video{border-radius:8px}
-
-/* Sidebar: skill list & table */
-#skills ul{padding-left:1.05rem}
-dl{margin-top:8px}
-dt{font-weight:700}
-dd{margin:0 0 8px 0}
-
-/* Table styling: mudah dibaca dan fokusable */
-table{width:100%;border-collapse:collapse;margin-top:8px}
-th,td{padding:10px;border:1px solid #e6eef9;text-align:left}
-caption{caption-side:top;font-weight:700;padding-bottom:8px}
-
-/* Form styling: aksesibilitas pelejaran (focus visible) */
-form{display:grid;gap:10px}
-label{display:block;font-size:0.95rem;margin-bottom:4px}
-input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #cbdcf6;font-size:1rem}
-input:focus,textarea:focus{outline:3px solid rgba(30,136,229,0.25);outline-offset:2px}
-button{background:var(--blue-700);color:white;padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
-
-/* Footer */
-.site-footer{margin-top:16px;padding:16px;text-align:center;color:var(--muted);font-size:0.95rem}
-
-/* Responsive: ubah ke satu kolom pada layar kecil */
-@media (max-width:900px){
-  main.container{grid-template-columns:1fr}
-  .about-article{flex-direction:column;align-items:flex-start}
-  .about-article img{width:120px;height:120px}
+/* ========== UTILITIES ========== */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
 }
 
-/* Accessibility helper: fokus global (kontras tinggi) */
-:focus{outline:3px solid var(--blue-700);outline-offset:2px}
-
-}
-.cta-button  {
-    background-color: #e74c3c;
-    color: white;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.cta-button: hover {
-    background-color: #c0392b;
-}
-.nav-cta a {
-    text-decoration: none;
-}
-.menu-tugas {
-    display: flex;
-    gap: 20px;
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
+.muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+/* Fokus keyboard (aksesibilitas) */
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* ========== HEADER & NAV ========== */
+.site-header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+}
+
+.header-inner {
+  padding: 2rem 0;
+}
+
+#site-title {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.main-nav {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ========== MAIN LAYOUT ========== */
+main.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  main.container {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  #about,
+  #projects,
+  #contact {
+    grid-column: 1 / 2;
+  }
+
+  #sidebar {
+    grid-column: 2 / 3;
+    align-self: start;
+  }
+}
+
+/* ========== ABOUT SECTION ========== */
+.about-article {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.about-article img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2563eb;
+}
+
+.about-text {
+  flex: 1;
+}
+
+/* ========== PROJECTS ========== */
+.project-item {
+  margin-bottom: 2rem;
+}
+
+.project-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.75rem 0;
+}
+
+.project-item iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.project-item video {
+  border-radius: 8px;
+}
+
+/* ========== SIDEBAR ========== */
+#sidebar h3 {
+  margin-top: 1.25rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+dl {
+  margin-top: 1rem;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* ========== TABLE ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: bottom;
+  padding-top: 0.5rem;
+  font-style: italic;
+}
+
+th,
+td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+thead {
+  background-color: #e0e7ff;
+}
+
+tfoot {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+/* ========== FORM ========== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+fieldset {
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-top: 0.75rem;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+small {
+  display: block;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: #1e40af;
+}
+
+/* Radio & checkbox spacing */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+  text-align: center;
+}
 
 
 
