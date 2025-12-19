@@ -115,7 +115,7 @@ button{background:var(--blue-700);color:white;padding:10px 14px;border-radius:8p
   transition: background-color 0.3s ease;
 }
 
-.cta-button: hover {
+.cta-button:hover {
   backgroumd-color: #c0392b;
 }
 
@@ -130,4 +130,5 @@ button{background:var(--blue-700);color:white;padding:10px 14px;border-radius:8p
 
 
   
+
 
