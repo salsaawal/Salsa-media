@@ -1,0 +1,63 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f4f6f8;
+    padding: 40px;
+}
+
+/* Judul */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Container list */
+.list {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* UL */
+.list ul {
+    list-style: none;
+}
+
+/* LI */
+.list ul li {
+    margin-bottom: 15px;
+}
+
+/* Link */
+.list ul li a {
+    display: block;
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 12px 15px;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.list ul li a:hover {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Active */
+.list ul li a:active {
+    background-color: #2980b9;
+}
